@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* =========================
+       DARK THEME (Default)
+       Background & Foreground
+    ========================== */
+    --color-background: #0A0A0A; /* gray-950 */
+    --color-foreground: #FAFAFA; /* gray-50 */
+
+    /* =========================
+       Card / Popover
+    ========================== */
+    --color-card: #171717; /* gray-900 */
+    --color-card-foreground: #FAFAFA;
+
+    --color-popover: #171717;
+    --color-popover-foreground: #FAFAFA;
+
+    /* =========================
+       Primary / Secondary
+    ========================== */
+    --color-primary: #7C3AED; /* purple-600 */
+    --color-primary-foreground: #FFFFFF;
+
+    --color-secondary: #3B82F6; /* blue-500 */
+    --color-secondary-foreground: #FFFFFF;
+
+    /* =========================
+       Muted (FIXED FOR GLASS)
+    ========================== */
+    --color-muted: #27272A;            /* gray-800 ✅ */
+    --color-muted-foreground: #D4D4D8; /* gray-300 ✅ readable */
+
+    /* =========================
+       Accent / Status
+    ========================== */
+    --color-accent: #10B981; /* emerald-500 */
+    --color-accent-foreground: #FFFFFF;
+
+    --color-destructive: #EF4444;
+    --color-destructive-foreground: #FFFFFF;
+
+    --color-success: #10B981;
+    --color-success-foreground: #FFFFFF;
+
+    --color-warning: #F59E0B;
+    --color-warning-foreground: #FFFFFF;
+
+    --color-error: #EF4444;
+    --color-error-foreground: #FFFFFF;
+
+    /* =========================
+       Borders / Inputs / Ring
+    ========================== */
+    --color-border: #27272A;
+    --color-input: #27272A;
+    --color-ring: #7C3AED;
+
+    /* =========================
+       Radius
+    ========================== */
+    --radius: 1.5rem;
+  }
+
+  /* =========================
+     LIGHT THEME
+  ========================== */
+  html:not(.dark) {
+    /* =========================
+       Background & Foreground
+    ========================== */
+    --color-background: #F9F9E7; /* light cream */
+    --color-foreground: #1A1A1A; /* dark text */
+
+    /* =========================
+       Card / Popover
+    ========================== */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1A1A1A;
+
+    --color-popover: #FFFFFF;
+    --color-popover-foreground: #1A1A1A;
+
+    /* =========================
+       Primary / Secondary
+    ========================== */
+    --color-primary: #7C3AED; /* purple-600 */
+    --color-primary-foreground: #FFFFFF;
+
+    --color-secondary: #3B82F6; /* blue-500 */
+    --color-secondary-foreground: #FFFFFF;
+
+    /* =========================
+       Muted
+    ========================== */
+    --color-muted: #E5E5E5;            /* light gray */
+    --color-muted-foreground: #666666; /* dark gray for text */
+
+    /* =========================
+       Accent / Status
+    ========================== */
+    --color-accent: #10B981; /* emerald-500 */
+    --color-accent-foreground: #FFFFFF;
+
+    --color-destructive: #EF4444;
+    --color-destructive-foreground: #FFFFFF;
+
+    --color-success: #10B981;
+    --color-success-foreground: #FFFFFF;
+
+    --color-warning: #F59E0B;
+    --color-warning-foreground: #FFFFFF;
+
+    --color-error: #EF4444;
+    --color-error-foreground: #FFFFFF;
+
+    /* =========================
+       Borders / Inputs / Ring
+    ========================== */
+    --color-border: #E5E5E5;
+    --color-input: #E5E5E5;
+    --color-ring: #7C3AED;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  /* =========================
+     Grid Line Background
+  ========================== */
+  .grid-lines {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  }
+
+  html:not(.dark) .grid-lines {
+    background-image: 
+      linear-gradient(to right, rgba(124, 58, 237, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(124, 58, 237, 0.08) 1px, transparent 1px);
+  }
+
+  /* =========================
+     Glassmorphism
+  ========================== */
+  .glass-card {
+    background: rgba(23, 23, 23, 0.72); /* dark mode */
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  html:not(.dark) .glass-card {
+    background: rgba(255, 255, 255, 0.8); /* light mode */
+    border: 1px solid rgba(124, 58, 237, 0.15);
+  }
+
+  /* Improve muted text readability inside glass */
+  .glass-card .text-muted-foreground {
+    color: rgba(212, 212, 216, 0.85);
+  }
+
+  html:not(.dark) .glass-card .text-muted-foreground {
+    color: rgba(102, 102, 102, 0.9);
+  }
+
+  /* =========================
+     Neon Glow
+  ========================== */
+  .neon-glow {
+    text-shadow: 
+      0 0 20px rgba(124, 58, 237, 0.8),
+      0 0 40px rgba(124, 58, 237, 0.4);
+  }
+
+  /* =========================
+     Text Gradient
+  ========================== */
+  .text-gradient {
+    background: linear-gradient(135deg, #FAFAFA 0%, #7C3AED 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  html:not(.dark) .text-gradient {
+    background: linear-gradient(135deg, #7C3AED 0%, #1A1A1A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* =========================
+     Reveal Animations
+  ========================== */
+  .reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.will-animate {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  /* =========================
+     Keyframes
+  ========================== */
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* =========================
+     Animation Utilities
+  ========================== */
+  .animate-fade-in {
+    animation: fadeSlideIn 0.8s ease-out forwards;
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Animation Delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+}
