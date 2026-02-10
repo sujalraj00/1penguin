@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const PortfolioHero = () => {
   const stats = [
     { value: '70+', label: 'Projects' },
-    { value: '98%', label: 'Satisfaction' },
+    { value: '94%', label: 'Satisfaction' },
     { value: '10+', label: 'Industries' },
     { value: '3x', label: 'Avg Growth' },
   ];

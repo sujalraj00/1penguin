@@ -19,7 +19,7 @@ const CTASection = () => {
   };
 
   const handleBookCall = () => {
-    window.open("https://calendly.com/onepenguin/intro", "_blank");
+    window.open("https://calendly.com/pennnnguin3/30min", "_blank");
   };
 
   return (
@@ -250,7 +250,7 @@ const CTASection = () => {
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
             Have a project in mind? We'd love to hear about it. Let's create something exceptional together.
           </p>
-          <span className="text-xs tracking-widest uppercase text-muted-foreground/60">pennnnguin3@gmail.com</span>
+          <span className="text-xs tracking-widest uppercase text-muted-foreground/60">hello@1penguin.in</span>
         </div>
       </div>
     </section>

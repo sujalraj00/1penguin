@@ -125,27 +125,29 @@ const timelineData = [
 
 export function RadialOrbitalTimelineDemo() {
   return (
-    <div className="flex items-center justify-between gap-12">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
       {/* Content Section */}
-      <div className="flex-1">
+      <div className="flex-1 w-full">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20 text-center">
+          <div className="mb-12 lg:mb-20 text-center lg:text-left">
             <span className="text-primary font-bold tracking-[0.4em] uppercase text-[10px] block mb-6">
               Our Process
             </span>
-            <h2 className="font-display text-4xl md:text-7xl tracking-tighter leading-none mb-8 text-foreground">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl tracking-tighter leading-none mb-8 text-foreground">
               How We Work
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
               A transparent, collaborative approach that ensures your project succeeds from day one.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Timeline Section */}
-      <div className="flex-1">
-        <RadialOrbitalTimeline timelineData={timelineData} />
+      {/* Timeline Section - Full width on mobile, flex-1 on desktop */}
+      <div className="flex-1 w-full overflow-x-auto">
+        <div className="min-w-full">
+          <RadialOrbitalTimeline timelineData={timelineData} />
+        </div>
       </div>
     </div>
   );

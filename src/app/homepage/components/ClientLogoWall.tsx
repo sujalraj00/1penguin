@@ -12,16 +12,16 @@ interface Client {
 const ClientLogoWall = () => {
   const clients: Client[] = [
     { id: 'client_techflow', name: 'TechFlow', icon: 'CpuChipIcon' },
-    { id: 'client_dataviz', name: 'DataViz', icon: 'ChartBarIcon' },
+    { id: 'client_dataviz', name: 'WhiterApps', icon: 'ChartBarIcon' },
     { id: 'client_greenleaf', name: 'GreenLeaf', icon: 'SparklesIcon' },
-    { id: 'client_quantum', name: 'Quantum', icon: 'CubeIcon' },
+    { id: 'client_quantum', name: 'LittleHelpingHands', icon: 'CubeIcon' },
     { id: 'client_nexus', name: 'Nexus', icon: 'CommandLineIcon' },
     { id: 'client_aurora', name: 'Aurora', icon: 'SunIcon' },
-    { id: 'client_zenith', name: 'Zenith', icon: 'BoltIcon' },
-    { id: 'client_vertex', name: 'Vertex', icon: 'StarIcon' },
+    { id: 'client_zenith', name: 'AutoCart', icon: 'BoltIcon' },
+    { id: 'client_vertex', name: 'StatoCart', icon: 'StarIcon' },
     { id: 'client_pulse', name: 'Pulse', icon: 'HeartIcon' },
-    { id: 'client_apex', name: 'Apex', icon: 'RocketLaunchIcon' },
-    { id: 'client_nova', name: 'Nova', icon: 'FireIcon' },
+
+    { id: 'client_nova', name: 'Boomlex Technologies', icon: 'FireIcon' },
     { id: 'client_echo', name: 'Echo', icon: 'SpeakerWaveIcon' },
   ];
 

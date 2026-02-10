@@ -20,44 +20,44 @@ const TestimonialsSection = () => {
       tempId: 0,
       testimonial: "OnePenguin created 50 AI videos for our product launch. We hit 1M views in 2 weeks.",
       by: "Alok Kumar, Ai Creator",
-      imgSrc: "https://i.pravatar.cc/150?img=1"
+      imgSrc: ""
     },
     {
       tempId: 1,
       testimonial: "Their web dev team built our SaaS platform in 8 weeks. Now serving 10K users.",
       by: "Rajat Mittal, CEO at WhiterApps",
-      imgSrc: "https://i.pravatar.cc/150?img=2"
+      imgSrc: ""
     },
     {
       tempId: 2,
       testimonial: "Social media management increased our engagement by 280%. Worth every penny.",
       by: "Shivam Rai, Managing Director at StatoCart",
-      imgSrc: "https://i.pravatar.cc/150?img=3"
+      imgSrc: ""
     },
     {
       tempId: 3,
       testimonial: "The AI automation helped us a lot. ROI was immediate.",
       by: "Anoop Maurya, CEO at DevientX",
-      imgSrc: "https://i.pravatar.cc/150?img=4"
+      imgSrc: ""
     },
       {
       tempId: 4,
       testimonial: "Finally, a team that understands both tech and business.",
       by: "Niranjan, Operations Manager at Boomlex",
-      imgSrc: "https://i.pravatar.cc/150?img=4"
+      imgSrc: ""
     },
       {
       tempId: 5,
       testimonial: "The AI automation saved us 15 hours per week. ROI was immediate.",
       by: "Chinmay Samal",
-      imgSrc: "https://i.pravatar.cc/150?img=4"
+      imgSrc: ""
     },
 
     {
       tempId: 6,
       testimonial: "They don’t overpromise. They deliver What stood out was how honest they were about what we needed—and what we didn’t. The MVP helped us raise our first round of funding.",
       by: "Ananya Verma, Co-Founder",
-      imgSrc: "https://i.pravatar.cc/150?img=4"
+      imgSrc: ""
     },
   ]);
 
@@ -144,14 +144,14 @@ const TestimonialsSection = () => {
                   height: 2
                 }}
               />
-              <AppImage
+              {/* <AppImage
                 src={testimonial.imgSrc}
                 alt={`${testimonial.by.split(',')[0]} testimonial photo`}
                 className="mb-4 h-14 w-12 bg-muted object-cover object-top"
                 style={{
                   boxShadow: "3px 3px 0px hsl(var(--color-background))"
                 }}
-              />
+              /> */}
               <h3 className={`text-base sm:text-xl font-medium ${
                 isCenter ? 'text-primary-foreground' : 'text-foreground'
               }`}>

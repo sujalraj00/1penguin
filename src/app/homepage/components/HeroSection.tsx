@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Icon from '@/components/ui/AppIcon';
 
@@ -101,14 +102,14 @@ so you can focus on users, feedback, and growth.
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}>
 
-              <button className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/50">
+              <Link href="/contact" className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/50">
                 Start Your Project
                 <Icon
                   name="ArrowRightIcon"
                   size={16}
                   className="transition-transform group-hover:translate-x-1" />
 
-              </button>
+              </Link>
 
               <button className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card/50 px-8 py-4 text-sm font-semibold text-foreground backdrop-blur-sm transition-colors hover:bg-card">
                 <Icon name="PlayIcon" variant="solid" size={16} />
@@ -143,10 +144,10 @@ so you can focus on users, feedback, and growth.
                 <div className="space-y-3 mb-8">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Client Satisfaction</span>
-                    <span className="text-foreground font-medium">98%</span>
+                    <span className="text-foreground font-medium">94%</span>
                   </div>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
-                    <div className="h-full w-[98%] rounded-full bg-gradient-to-r from-primary to-secondary" />
+                    <div className="h-full w-[94%] rounded-full bg-gradient-to-r from-primary to-secondary" />
                   </div>
                 </div>
 

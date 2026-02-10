@@ -39,6 +39,7 @@ export default function RadialOrbitalTimeline({
   });
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
   const [isDark, setIsDark] = useState(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
@@ -67,6 +68,17 @@ export default function RadialOrbitalTimeline({
 
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
     return () => observer.disconnect();
+  }, []);
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const toggleItem = (id: number) => {
@@ -133,7 +145,7 @@ export default function RadialOrbitalTimeline({
 
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 200;
+    const radius = isMobile ? 120 : 200;
     const radian = (angle * Math.PI) / 180;
 
     const x = radius * Math.cos(radian) + centerOffset.x;
@@ -188,11 +200,11 @@ export default function RadialOrbitalTimeline({
 
   return (
     <div
-      className="w-full h-screen flex flex-col items-center justify-center overflow-hidden"
+      className={`w-full flex flex-col items-center justify-center overflow-hidden ${isMobile ? 'min-h-auto py-8' : 'h-screen'}`}
       ref={containerRef}
       onClick={handleContainerClick}
     >
-      <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
+      <div className={`relative w-full max-w-4xl flex items-center justify-center ${isMobile ? 'h-64' : 'h-full'}`}>
         <div
           className="absolute w-full h-full flex items-center justify-center"
           ref={orbitRef}
@@ -202,15 +214,15 @@ export default function RadialOrbitalTimeline({
           }}
         >
           <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10">
-            <div className={`absolute w-20 h-20 rounded-full ${isDark ? 'border-white/20' : 'border-primary/30'} border animate-ping opacity-70`}></div>
+            <div className={`absolute ${isMobile ? 'w-12 h-12' : 'w-20 h-20'} rounded-full ${isDark ? 'border-white/20' : 'border-primary/30'} border animate-ping opacity-70`}></div>
             <div
-              className={`absolute w-24 h-24 rounded-full ${isDark ? 'border-white/10' : 'border-primary/20'} border animate-ping opacity-50`}
+              className={`absolute ${isMobile ? 'w-16 h-16' : 'w-24 h-24'} rounded-full ${isDark ? 'border-white/10' : 'border-primary/20'} border animate-ping opacity-50`}
               style={{ animationDelay: "0.5s" }}
             ></div>
             <div className={`w-8 h-8 rounded-full ${isDark ? 'bg-white/80' : 'bg-primary'} backdrop-blur-md`}></div>
           </div>
 
-          <div className={`absolute w-96 h-96 rounded-full ${isDark ? 'border-white/10' : 'border-primary/20'} border`}></div>
+          <div className={`absolute ${isMobile ? 'w-48 h-48' : 'w-96 h-96'} rounded-full ${isDark ? 'border-white/10' : 'border-primary/20'} border`}></div>
 
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);
@@ -259,7 +271,7 @@ export default function RadialOrbitalTimeline({
 
                 <div
                   className={`
-                  w-10 h-10 rounded-full flex items-center justify-center
+                  ${isMobile ? 'w-8 h-8' : 'w-10 h-10'} rounded-full flex items-center justify-center
                   ${
                     isExpanded
                       ? isDark ? "bg-white text-black" : "bg-primary text-white"
@@ -279,7 +291,7 @@ export default function RadialOrbitalTimeline({
                   ${isExpanded ? "scale-150" : ""}
                 `}
                 >
-                  <Icon size={16} />
+                  <Icon size={isMobile ? 12 : 16} />
                 </div>
 
                 <div
@@ -294,7 +306,7 @@ export default function RadialOrbitalTimeline({
                 </div>
 
                 {shouldShowCard && (
-                  <Card className={`absolute top-20 left-1/2 -translate-x-1/2 w-64 ${isDark ? "bg-black/90 border-white/30 shadow-xl shadow-white/10" : "bg-white border-primary/30 shadow-xl shadow-primary/10"} backdrop-blur-lg overflow-visible`}>
+                  <Card className={`absolute ${isMobile ? 'top-14 w-48' : 'top-20 w-64'} left-1/2 -translate-x-1/2 ${isDark ? "bg-black/90 border-white/30 shadow-xl shadow-white/10" : "bg-white border-primary/30 shadow-xl shadow-primary/10"} backdrop-blur-lg overflow-visible`}>
                     <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 ${isDark ? "bg-white/50" : "bg-primary/50"}`}></div>
                     <CardHeader className="pb-2">
                       <div className="flex justify-between items-center">

@@ -49,11 +49,11 @@ const Header = () => {
   }, [pathname]);
 
   const navLinks = [
-    { id: 'nav_home', label: 'Home', href: '/homepage' },
-    { id: 'nav_services', label: 'Services', href: '/services' },
-    { id: 'nav_portfolio', label: 'Portfolio', href: '/portfolio' },
-    { id: 'nav_faq', label: 'Faq', href: '/faq' },
-    { id: 'nav_contact', label: 'Contact', href: '/contact' },
+    { id: 'nav_home', label: 'HOME', href: '/homepage' },
+    { id: 'nav_services', label: 'SERVICES', href: '/services' },
+    { id: 'nav_portfolio', label: 'PORTFOLIO', href: '/portfolio' },
+    { id: 'nav_faq', label: 'FAQ', href: '/faq' },
+    { id: 'nav_contact', label: 'CONTACT', href: '/contact' },
   ];
 
   const isActive = (href: string) => pathname === href;
