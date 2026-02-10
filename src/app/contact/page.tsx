@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '@/components/ui/AppIcon';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+
+
 
 interface FormData {
   name: string;
@@ -28,6 +31,18 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  useEffect(() => {
+    try {
+      document.title = 'Contact us - 1penguin';
+      const desc = document.querySelector('meta[name="description"]');
+      if (desc) {
+        desc.setAttribute('content', 'Get in touch with 1penguin for your project needs');
+      }
+    } catch (e) {
+      // noop in non-browser environments
+    }
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -35,14 +50,32 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', company: '', service: '', budget: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        setSubmitStatus('error');
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
       setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', company: '', service: '', budget: '', message: '' });
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    }, 1500);
+    }
   };
 
   const services = [
@@ -64,7 +97,7 @@ const ContactPage = () => {
   ];
 
   const contactInfo = [
-    { icon: 'EnvelopeIcon', label: 'Email', value: 'pennnnguin3@gmail.com' },
+    { icon: 'EnvelopeIcon', label: 'Email', value: 'hello@1penguin.in' },
     { icon: 'PhoneIcon', label: 'Phone', value: '+91 7061833566' },
    
   ];
@@ -227,6 +260,16 @@ const ContactPage = () => {
                     className="p-4 bg-success/10 border border-success rounded-xl text-success text-center"
                   >
                     Message sent successfully! We'll get back to you soon.
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-error/10 border border-error rounded-xl text-error text-center"
+                  >
+                    Failed to send message. Please try again or contact us directly at hello@1penguin.in
                   </motion.div>
                 )}
               </form>

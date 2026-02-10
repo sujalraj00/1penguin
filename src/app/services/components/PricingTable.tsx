@@ -358,6 +358,7 @@ const PricingTable = () => {
 
                 {/* CTA */}
                 <motion.button
+                  onClick={() => window.open('https://calendly.com/pennnnguin3/30min', '_blank')}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 import AppImage from '@/components/ui/AppImage';
 
@@ -122,9 +123,9 @@ const WebAppDevService = () => {
                 <span className="text-foreground">App Development</span>
                 <span className="font-bold text-foreground">From $1K</span>
               </div> */}
-              <button className="w-full mt-6 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 transition-transform">
+              <Link href="/contact" className="w-full mt-6 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 transition-transform inline-block text-center">
                 Get Custom Quote
-              </button>
+              </Link>
             </div>
           </div>
         </div>

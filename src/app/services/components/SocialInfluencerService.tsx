@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 import AppImage from '@/components/ui/AppImage';
 
@@ -115,9 +116,9 @@ const SocialInfluencerService = () => {
             <div className="pt-6 border-t border-border">
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Price : </p>
               <p className="text-3xl font-bold text-foreground mb-4">Get Personalised<span className="text-base text-muted-foreground"></span></p>
-              <button className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 transition-transform">
+              <Link href="/contact" className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 transition-transform inline-block text-center">
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -148,9 +149,9 @@ const SocialInfluencerService = () => {
             <div className="pt-6 border-t border-border">
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Price</p>
               <p className="text-3xl font-bold text-foreground mb-4">Varies on your needs<span className="text-base text-muted-foreground"></span></p>
-              <button className="w-full px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold hover:scale-105 transition-transform">
+              <Link href="/contact" className="w-full px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold hover:scale-105 transition-transform inline-block text-center">
                 Launch Campaign
-              </button>
+              </Link>
             </div>
           </div>
         </div>

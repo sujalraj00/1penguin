@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 
 const AutomationService = () => {
@@ -115,9 +116,9 @@ const AutomationService = () => {
               <p className="text-3xl font-bold text-foreground"><span className="text-base text-muted-foreground"></span></p>
             </div>
           </div>
-          <button className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 transition-transform">
+          <Link href="/contact" className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 transition-transform inline-block">
             Schedule Consultation
-          </button>
+          </Link>
         </div>
       </div>
     </section>

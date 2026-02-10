@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 import AppImage from '@/components/ui/AppImage';
 
@@ -179,17 +180,22 @@ const AIVideoService = () => {
               </div>
             </motion.div>
 
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full md:w-auto px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold"
             >
-              Get Started
-            </motion.button>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full md:w-auto px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold cursor-pointer"
+                >
+                  Get Started
+                </motion.button>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>

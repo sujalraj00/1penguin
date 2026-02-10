@@ -130,6 +130,14 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     transition: background-color 0.3s ease, color 0.3s ease;
+    /* Add padding for fixed mobile header */
+    padding-top: 3.75rem; /* 60px for mobile header + spacing */
+  }
+
+  @media (min-width: 768px) {
+    body {
+      padding-top: 0; /* No padding needed for desktop */
+    }
   }
 }
 

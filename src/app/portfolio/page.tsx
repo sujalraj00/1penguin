@@ -9,7 +9,7 @@ import ClientLogosSection from './components/ClientLogosSection';
 import AwardsSection from './components/AwardsSection';
 
 export const metadata: Metadata = {
-  title: 'Portfolio - OnePenguin | 200+ Projects, Real Results',
+  title: 'Portfolio - 1Penguin',
   description: 'Explore OnePenguin\'s portfolio of 200+ successful projects. Case studies featuring 1M+ video views, 10K users, 280% engagement growth. Real work, real results.',
   keywords: 'portfolio, case studies, project showcase, client work, digital agency results, AI video portfolio, web development projects',
 };

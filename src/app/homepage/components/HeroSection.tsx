@@ -27,12 +27,12 @@ const HeroSection = () => {
   }, []);
 
   const clients = [
-  { id: 'client_techflow', name: 'TechFlow', icon: 'CpuChipIcon' },
-  { id: 'client_dataviz', name: 'DataViz', icon: 'ChartBarIcon' },
-  { id: 'client_greenleaf', name: 'GreenLeaf', icon: 'SparklesIcon' },
-  { id: 'client_quantum', name: 'Quantum', icon: 'CubeIcon' },
-  { id: 'client_nexus', name: 'Nexus', icon: 'CommandLineIcon' },
-  { id: 'client_aurora', name: 'Aurora', icon: 'SunIcon' }];
+  { id: 'client_techflow', name: 'NextarStudios', icon: 'CpuChipIcon' },
+  { id: 'client_dataviz', name: 'Boomlex Technologies', icon: 'ChartBarIcon' },
+  { id: 'client_greenleaf', name: 'AutoCart', icon: 'SparklesIcon' },
+  { id: 'client_quantum', name: 'LittleHelpingHands', icon: 'CubeIcon' },
+  { id: 'client_nexus', name: 'StatoCart', icon: 'CommandLineIcon' },
+  { id: 'client_aurora', name: 'WhiterApps', icon: 'SunIcon' }];
 
 
   return (
@@ -134,7 +134,7 @@ so you can focus on users, feedback, and growth.
                     <Icon name="RocketLaunchIcon" size={24} className="text-primary" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold tracking-tight text-foreground">200+</div>
+                    <div className="text-3xl font-bold tracking-tight text-foreground">70+</div>
                     <div className="text-sm text-muted-foreground">Projects Delivered</div>
                   </div>
                 </div>

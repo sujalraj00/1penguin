@@ -10,7 +10,7 @@ import ClientLogoWall from './components/ClientLogoWall';
 import CTASection from './components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'OnePenguin - AI-Powered Creative Agency',
+  title: '1Penguin - AI-Powered Creative Agency',
   description: 'Building tomorrow\'s brands today. AI video creation, web/app development, social media management, influencer marketing, and automation services.',
   keywords: 'AI agency, video creation, web development, app development, social media, influencer marketing, automation',
 };
